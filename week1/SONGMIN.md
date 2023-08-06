@@ -111,7 +111,8 @@
 > EXMAScript = 자바의 표준사양 __EXMA-262__ 칭함 
 > </br> 프로그래밍 언어의 값, 타입, 객체와 프로퍼티, 함수, 표준 빌트인 객체(Standard built-in object) 등 핵심문법을 규정함
 - 자바스크립트 = 프로그래밍 언어의 기본뼈대(__ECMASciprt__) + 브라우저 별도 지원하는 __클라이언트 사이드 Web API__(DOM, BOM, Canvas, XMLHttpRequest, fetch, requestAnimationFrame, SVG, Web Storage, Web Component, Web Worker 등)
-<img src="https://github.com/Elelero/deepDive/assets/91528640/19232dda-15ac-45c2-a042-10ceebb5cf34" width="170" height="150"/>
+<img src="https://github.com/Elelero/deepDive/assets/91528640/161fac58-7d98-4e95-8206-226635825e66" width="170" height="150"/>
+
 
 ### 5. 자바스크립트의 특징
 > 웹 브라우저에서 동작하는 유일한 프로그래밍 언어
@@ -140,19 +141,40 @@
 - 자바스크립트는 `명령형(imperative)`, `함수형(functional)`, `프로토타입 기반(prototype-based) 객체지향 프로그래밍`을 지원하는 __멀티 패러다임 프로그래밍 언어__ 임
 - 자바스크립트는 클래스 기반 객체지향 언어보다 효율적이면서 강력한 __프로토타입 기반의 객체지향 언어__ 임
 
+<br/> <br/> <br/> 
+# Chapter3. 자바스크립트 개발환경과 실행방법
 
+### 1. 자바스크립트 실행환경
+- 모든 브라우저와 Node.js는 자바스크립트를 해석하고 실행할 수 있는 __자바스크립트 엔진을 내장__ 하고 있음
+  </br> ∴ 브라우저에서 동작하는 코드는 Node.js 환경에서도 동일하게 동작함
+- But, 브라우저와 Node.js 용도가 다름!!
+  - __브라우저__: HTML, CSS, 자바스크립트를 실행해 웹페이지를 브라우저 화면에 렌더링하는 것이 주된 목적
+  - __Node.js__: 브라우저 외부에서 자바스크립트 실행환경을 제공하는 것이 주된 목적
+    </br>
+    ```
+      (ex1.) DOM API(파싱된 HTML 요소를 선택하거나 조작하는 기능의 집합)
+          - 브라우저에서는 기본적으로 제공
+          - Node.js 제공x ( ∵ 브라우저 외부 환경에서 HTML 요소를 파싱해서 객체화한 DOM을 직접 다룰 필요없기 때문 )
+
+      (ex2.) 파일 시스템(파일 생성/수정)
+          - 브라우저에서는 지원x
+            => FileReader 객체(Web API)를 사용해 사용자가 지정한 파일을 읽어 들이는 것은 가능
+          - Node.js에서는 기본적으로공
+    ```
+<img src="https://github.com/Elelero/deepDive/assets/91528640/0294fd7e-3bbd-47cb-882e-2a5bb6fcd46f" width="400" height="300"/>
+
+### 2. 웹 브라우저
+#### [ `개발자 도구(DevTools)` ]
+|**패널**|설명|
+|:---|:---|
+|__Elements__|로딩된 웹페이지의 DOM과 CSS를 편집해서 렌더링된 뷰를 확인해 볼 수 있음. </br> 단, 편집한 내용이 저장되지는 않음. </br> 웹페이지가 의도된 대로 렌더링되지 않았다면 이 패널을 확인해 유용한 힌트를 얻을 수 있음|
+|__Console__|로딩된 웹페이지의 에러를 확인하거나 자바스크립트 소스코드에 작성한 console.log 메서드의 실행결과를 확인할 수 있음. </br> 콘솔은 코드를 직접 입력해 그 결과를 확인할 수 있는 __REPL(Read Eval Print Loop; 입력 수행 출력 반복)__ 환경으로 사용할 음|
+|__Sources__|로딩된 웹페이지의 자바스크립트 코드를 디버깅할 수 있음|
+|__Network__|로딩된 웹페이지에 관련된 네트워크 요청(request) 정보와 성능을 확인할 수 있음|
+|__Application__|웹 스토리지, 세션, 쿠키를 확인하고 관리할 수 있음|
 
 <br/> <br/> <br/> 
-# Chapter2. 자바스크립트란?
-
-
-
-
-
-
-
-
-
+# Chapter4. 변수
 
 <br/> <br/> <br/> 
 # Chapter5. 표현식과 문

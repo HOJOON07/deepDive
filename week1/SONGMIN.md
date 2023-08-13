@@ -440,7 +440,7 @@
 #### [ `멀티라인 문자열` ]
 - 일반 문자열내에서는 줄바꿈(개행)이 허용되지 않아 __이스케이프 시퀀스__ 를 사용해야함!
   |**이스케이프 시퀀스**|의미|
-  |:---:|:---|:---|
+  |:---:|:---|
   |\0|Null|
   |\b|백스페이스|
   |\n|개행(다음행으로 이동)|
@@ -789,8 +789,48 @@
   getStringLength('hi');  // 2
 ```
 
-### 5. 옵셔널 체이닝 연산자 ★★★
+### 5. 옵셔널 체이닝 연산자 (?.) ★★★
 > 좌항의 피연산자가 null 또는 undefined인 경우에 undefined 반환
+```javascript
+  var elem = null;
 
+  // elem이 null 또는 undefined이면 undefined 반환
+  // 그렇지 않은 경우, 우항의 프로퍼티 참조
+  var value = elem?.value;
+  console.log(value);  // undefined
+```
 
-### 6. null 병합 연산자 ★★★
+* 옵셔널 체이닝 연산자 : __`?.`__
+  - 객체를 가리키기를 기대하는 변수가 null 또는 undefined가 아닌지 확인하고 프로퍼티를 참조할 때 유용!
+```javascript
+  var str = '';
+
+  // 도입 이전에는 && 연산자 많이 쓰임
+  var length = str && str.length;
+  console.log(length); // ''
+
+  // 옵셔널 체이닝 연산자는 문자열의 길이(length)를 참조함. 이때 좌항 피연산자가 false로 평가되는 Falsy 값이라도 
+  // null 또는 undefined 그렇지 않은 경우, 우항의 프로퍼티 참조
+  var length = str?.length;
+  console.log(length);  // 0
+``` 
+
+### 6. null 병합 연산자 (??) ★★★
+> 좌항의 피연산자가 null 또는 undefined인 경우 우항의 피연산자를 반환
+```javascript
+  var foo = null ?? 'default string';
+
+  console.log(foo);  // "default string"
+```
+* null 병합 연산자 : __`??`__
+  - 변수에 기본값을 설정할 때 유용!
+```javascript
+  // 도입이전에는 || 연산자가 많이 쓰임
+  var foo = '' || 'default string';
+  console.log(foo);  // "default string"
+
+  // null 병합 연산자는 좌항의 피연산자가 false로 평가되는 Falsy 값(false, undefined, null, 0, -0, NaN, '') 이라도
+  // null 또는 undefined가 아니면 좌항의 피연산자 그대로 반환
+  var foo = '' ?? 'default string';
+  console.log(foo); // ""
+``` 

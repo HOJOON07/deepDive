@@ -49,3 +49,49 @@ const b = new Circle2();
 console.log(b);
 
 //Circle2 {}
+
+console.log("a");
+setTimeout(() => console.log("b"), 1000);
+setTimeout(() => console.log("c"), 0);
+console.log("d");
+
+const increase = (num) => {
+  return ++num;
+};
+
+const decrease = (num) => {
+  return --num;
+};
+
+const auxs = { increase, decrease };
+
+const makeCounter = (aux) => {
+  let num = 0;
+
+  return () => {
+    num = aux(num);
+    return num;
+  };
+};
+
+const increaser = makeCounter(auxs.increase);
+
+console.log(increaser());
+
+const decreaser = makeCounter(auxs.decrease);
+console.log(decreaser());
+
+function sum(...args) {
+  let result = 0;
+  args.forEach((item) => (result += item));
+  return result;
+}
+
+console.log(sum(1, 2, 3, 4, 5));
+
+const arrowFunctionisName = () => {
+  console.log("나 화살표");
+};
+
+console.log(arrowFunctionisName.name);
+//arrowFunctionisName
